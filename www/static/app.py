@@ -1,3 +1,8 @@
+#!/user/bin/env python3
+# -*- coding: utf-8 -*-
+
+__autuor__ = "lxin"
+
 #设定日志打印等级
 import logging; logging.basicConfig(level=logging.INFO)
 
