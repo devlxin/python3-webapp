@@ -1,13 +1,15 @@
+#设定日志打印等级
 import logging; logging.basicConfig(level=logging.INFO)
 
-import asyncion, os, json, time
-from detetime import datetime
+import asyncio, os, json, time
+from datetime import datetime
 
 from aiohttp import web
 
 def index(request):
-	return web.Response(body=b'<h1>Hello, my first python3-webapp</h1>')
+	return web.Response(body=b'<h1>Hello,python3-webapp</h1>', content_type='text/html', charset='UTF-8')
 
+#异步io，协程
 @asyncio.coroutine
 def init(loop):
 	app = web.Application(loop=loop)
@@ -16,6 +18,7 @@ def init(loop):
 	logging.info('server started at http://127.0.0.1:9000...')
 	return srv
 
+#开启时间循环
 loop = asyncio.get_event_loop()
 loop.run_until_complete(init(loop))
 loop.run_forever()
